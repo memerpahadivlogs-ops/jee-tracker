@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f1117">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="JEE Tracker">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIkpFRSBKb3VybmV5IFRyYWNrZXIiLCAic2hvcnRfbmFtZSI6ICJKRUUgVHJhY2tlciIsICJkZXNjcmlwdGlvbiI6ICJQZXJzb25hbCBKRUUgcHJlcCBkYXNoYm9hcmQgXHUyMDE0IHN5bGxhYnVzLCBub3RlcywgdGVzdHMsIHBsYW5uZXIsIHRpbWVyIiwgInN0YXJ0X3VybCI6ICIuIiwgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMwZjExMTciLCAidGhlbWVfY29sb3IiOiAiIzBmMTExNyIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSGRwWkhSb1BTSTFNVElpSUdobGFXZG9kRDBpTlRFeUlpQjJhV1YzUW05NFBTSXdJREFnTlRFeUlEVXhNaUkrQ2p4a1pXWnpQZ284YkdsdVpXRnlSM0poWkdsbGJuUWdhV1E5SW1jaUlIZ3hQU0l3SWlCNU1UMGlNQ0lnZURJOUlqRWlJSGt5UFNJeElqNEtQSE4wYjNBZ2IyWm1jMlYwUFNJd0lpQnpkRzl3TFdOdmJHOXlQU0lqTldJNFkyWm1JaTgrQ2p4emRHOXdJRzltWm5ObGREMGlNU0lnYzNSdmNDMWpiMnh2Y2owaUl6ZGpOV05tWmlJdlBnbzhMMnhwYm1WaGNrZHlZV1JwWlc1MFBnbzhMMlJsWm5NK0NqeHlaV04wSUhkcFpIUm9QU0kxTVRJaUlHaGxhV2RvZEQwaU5URXlJaUJ5ZUQwaU1URXdJaUJtYVd4c1BTSWpNR1l4TVRFM0lpOCtDanh5WldOMElIZHBaSFJvUFNJMU1USWlJR2hsYVdkb2REMGlOVEV5SWlCeWVEMGlNVEV3SWlCbWFXeHNQU0oxY213b0kyY3BJaUJ2Y0dGamFYUjVQU0l3TGpFNElpOCtDangwWlhoMElIZzlJakkxTmlJZ2VUMGlNekF3SWlCbWIyNTBMV1poYldsc2VUMGlRWEpwWVd3c0lITmhibk10YzJWeWFXWWlJR1p2Ym5RdGQyVnBaMmgwUFNJNE1EQWlJR1p2Ym5RdGMybDZaVDBpTVRrd0lpQm1hV3hzUFNKMWNtd29JMmNwSWlCMFpYaDBMV0Z1WTJodmNqMGliV2xrWkd4bElqNUtSVVU4TDNSbGVIUStDangwWlhoMElIZzlJakkxTmlJZ2VUMGlNemd3SWlCbWIyNTBMV1poYldsc2VUMGlRWEpwWVd3c0lITmhibk10YzJWeWFXWWlJR1p2Ym5RdGQyVnBaMmgwUFNJMk1EQWlJR1p2Ym5RdGMybDZaVDBpTlRRaUlHWnBiR3c5SWlNNFlUa3dZVE1pSUhSbGVIUXRZVzVqYUc5eVBTSnRhV1JrYkdVaVBsUlNRVU5MUlZJOEwzUmxlSFErQ2p3dmMzWm5QZz09IiwgInNpemVzIjogIjUxMng1MTIiLCAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIn1dfQ==">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNWI4Y2ZmIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzdjNWNmZiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEwIiBmaWxsPSIjMGYxMTE3Ii8+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEwIiBmaWxsPSJ1cmwoI2cpIiBvcGFjaXR5PSIwLjE4Ii8+Cjx0ZXh0IHg9IjI1NiIgeT0iMzAwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iMTkwIiBmaWxsPSJ1cmwoI2cpIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5KRUU8L3RleHQ+Cjx0ZXh0IHg9IjI1NiIgeT0iMzgwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZvbnQtc2l6ZT0iNTQiIGZpbGw9IiM4YTkwYTMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlRSQUNLRVI8L3RleHQ+Cjwvc3ZnPg==">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNWI4Y2ZmIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzdjNWNmZiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEwIiBmaWxsPSIjMGYxMTE3Ii8+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEwIiBmaWxsPSJ1cmwoI2cpIiBvcGFjaXR5PSIwLjE4Ii8+Cjx0ZXh0IHg9IjI1NiIgeT0iMzAwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iMTkwIiBmaWxsPSJ1cmwoI2cpIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5KRUU8L3RleHQ+Cjx0ZXh0IHg9IjI1NiIgeT0iMzgwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZvbnQtc2l6ZT0iNTQiIGZpbGw9IiM4YTkwYTMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlRSQUNLRVI8L3RleHQ+Cjwvc3ZnPg==">
+<title>JEE Journey Tracker</title>
+<style>
+  :root{
+    --bg:#0f1117; --panel:#171a23; --panel2:#1d2130; --border:#2a2f3f;
+    --text:#e8eaf0; --muted:#8a90a3; --accent:#5b8cff; --accent2:#7c5cff;
+    --good:#34c77b; --warn:#f2b84b; --bad:#f0556b; --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:linear-gradient(160deg,#0c0e14,#14161f 60%,#10131c);color:var(--text);min-height:100vh;}
+  .app{display:flex;min-height:100vh;}
+  .sidebar{width:230px;background:var(--panel);border-right:1px solid var(--border);padding:20px 14px;position:sticky;top:0;height:100vh;flex-shrink:0;overflow-y:auto;}
+  .brand{font-weight:700;font-size:18px;margin-bottom:4px;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .brand-sub{font-size:11px;color:var(--muted);margin-bottom:24px;}
+  .nav-btn{display:flex;align-items:center;gap:10px;width:100%;padding:11px 12px;background:transparent;border:none;color:var(--muted);border-radius:10px;cursor:pointer;font-size:13.5px;text-align:left;margin-bottom:4px;transition:.15s;}
+  .nav-btn:hover{background:var(--panel2);color:var(--text);}
+  .nav-btn.active{background:linear-gradient(90deg,rgba(91,140,255,.18),rgba(124,92,255,.12));color:#fff;border:1px solid var(--border);}
+  .main{flex:1;padding:26px 32px;max-width:1200px;width:100%;}
+  h1{font-size:22px;margin:0 0 4px;}
+  .pagesub{color:var(--muted);font-size:13px;margin-bottom:22px;}
+  .grid{display:grid;gap:16px;}
+  .grid-4{grid-template-columns:repeat(4,1fr);}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+
+  /* ===== Mobile layout ===== */
+  @media(max-width:900px){
+    body{padding-bottom:env(safe-area-inset-bottom);}
+    .app{flex-direction:column;}
+    .sidebar{
+      width:100%;height:auto;position:sticky;top:0;z-index:30;
+      display:flex;overflow-x:auto;gap:4px;padding:10px 10px;
+      align-items:center;-webkit-overflow-scrolling:touch;
+      border-right:none;border-bottom:1px solid var(--border);
+    }
+    .brand{display:none;}
+    .brand-sub{display:none;}
+    .nav-btn{
+      flex-direction:column;gap:3px;white-space:nowrap;
+      padding:8px 12px;font-size:11px;border-radius:10px;flex-shrink:0;
+      min-width:64px;text-align:center;
+    }
+    .main{padding:16px 14px 90px;}
+    h1{font-size:19px;}
+    .grid-4,.grid-3,.grid-2{grid-template-columns:1fr;}
+    .card{padding:14px;}
+    .countdown-units{gap:8px;}
+    .cd-unit{min-width:62px;padding:8px 10px;}
+    .cd-num{font-size:22px;}
+    .modal{width:94vw;padding:18px;}
+    .timer-setup{flex-direction:column;align-items:stretch;}
+    .timer-setup .field{width:100% !important;}
+    table{font-size:11.5px;}
+    th,td{padding:7px 5px;}
+    .timer-big{font-size:18vw;}
+    .err-stat{min-width:100px;padding:8px 10px;}
+  }
+  @media(max-width:420px){
+    .nav-btn{min-width:56px;font-size:10px;padding:7px 8px;}
+    h1{font-size:17px;}
+  }
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px;}
+  .stat-num{font-size:26px;font-weight:700;}
+  .stat-label{color:var(--muted);font-size:12.5px;margin-top:2px;}
+  .section-title{font-size:15px;font-weight:600;margin:26px 0 12px;display:flex;align-items:center;justify-content:space-between;}
+  input,textarea,select{background:var(--panel2);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:9px 11px;font-size:13.5px;font-family:inherit;width:100%;}
+  textarea{resize:vertical;min-height:70px;}
+  button.btn{background:linear-gradient(90deg,var(--accent),var(--accent2));border:none;color:#fff;padding:9px 16px;border-radius:8px;cursor:pointer;font-size:13.5px;font-weight:600;}
+  button.btn:hover{filter:brightness(1.1);}
+  button.btn-ghost{background:var(--panel2);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer;font-size:12.5px;}
+  button.icon-btn{background:none;border:none;color:var(--muted);cursor:pointer;font-size:15px;padding:4px 6px;}
+  button.icon-btn:hover{color:var(--bad);}
+  .row{display:flex;gap:10px;flex-wrap:wrap;}
+  .list-item{background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:8px;display:flex;align-items:flex-start;gap:10px;}
+  .list-item .body{flex:1;}
+  .tag{display:inline-block;font-size:10.5px;padding:2px 8px;border-radius:20px;background:rgba(91,140,255,.15);color:#9db8ff;margin-right:6px;}
+  .tag.chem{background:rgba(52,199,123,.15);color:#6ee7a8;}
+  .tag.math{background:rgba(242,184,75,.15);color:#f6cd7c;}
+  .tag.phy{background:rgba(91,140,255,.15);color:#9db8ff;}
+  .chk{width:20px;height:20px;flex-shrink:0;accent-color:var(--accent);margin-top:2px;cursor:pointer;}
+  .done-text{text-decoration:line-through;color:var(--muted);}
+  .progress-bar{background:var(--panel2);border-radius:20px;height:8px;overflow:hidden;margin-top:6px;}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--good));}
+  .topic-block{margin-bottom:18px;}
+  .topic-block h4{margin:0 0 8px;font-size:13.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
+  .topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;}
+  .topic-pill{display:flex;align-items:center;gap:8px;background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:12.5px;}
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th,td{padding:9px 8px;border-bottom:1px solid var(--border);text-align:left;}
+  th{color:var(--muted);font-weight:600;font-size:11.5px;text-transform:uppercase;}
+  .empty{color:var(--muted);font-size:13px;text-align:center;padding:30px 0;}
+  .pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+  .timetable-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px;}
+  .timetable-grid{display:grid;grid-template-columns:80px repeat(7,minmax(110px,1fr));gap:1px;background:var(--border);border-radius:10px;overflow:hidden;font-size:11.5px;min-width:860px;}
+  .tt-cell{background:var(--panel2);padding:6px;min-height:38px;}
+  .tt-cell:nth-child(8n+1){position:sticky;left:0;z-index:5;background:#22273a;}
+  .tt-head{background:#22273a;text-align:center;font-weight:600;padding:8px 4px;}
+  .tt-cell textarea{min-height:34px;font-size:11px;padding:4px 6px;border:none;background:transparent;width:100%;}
+  .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);align-items:center;justify-content:center;z-index:50;}
+  .modal-bg.open{display:flex;}
+  .modal{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:22px;width:420px;max-width:90vw;}
+  .field{margin-bottom:12px;}
+  .field label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px;}
+  .close-x{float:right;background:none;border:none;color:var(--muted);cursor:pointer;font-size:18px;}
+  ::-webkit-scrollbar{width:8px;height:8px;}
+  ::-webkit-scrollbar-thumb{background:#2a2f3f;border-radius:10px;}
+
+  /* Exam countdown */
+  .countdown-card{background:linear-gradient(120deg,rgba(91,140,255,.14),rgba(124,92,255,.10));border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;margin-bottom:20px;}
+  .countdown-title{font-size:13px;color:var(--muted);margin-bottom:10px;letter-spacing:.3px;}
+  .countdown-units{display:flex;gap:14px;flex-wrap:wrap;}
+  .cd-unit{background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:10px 16px;min-width:78px;text-align:center;}
+  .cd-num{font-size:28px;font-weight:800;font-variant-numeric:tabular-nums;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .cd-label{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:2px;}
+
+  /* Focus timer */
+  .timer-setup{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;}
+  .timer-setup .field{margin-bottom:0;}
+  #timerOverlay{display:none;position:fixed;inset:0;background:radial-gradient(circle at 50% 40%,#171b29,#06070b 80%);z-index:100;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;}
+  #timerOverlay.open{display:flex;}
+  .timer-goal{font-size:20px;color:var(--muted);margin-bottom:14px;letter-spacing:.3px;}
+  .timer-big{font-size:min(20vw,160px);font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;}
+  .timer-big.urgent{background:linear-gradient(90deg,var(--bad),#ff8a5b);-webkit-background-clip:text;background-clip:text;}
+  .timer-controls{margin-top:30px;display:flex;gap:14px;}
+  .timer-controls button{font-size:14px;padding:11px 22px;border-radius:10px;}
+  .sprint-row{display:flex;align-items:center;gap:10px;}
+  .topic-pill{flex-direction:column;align-items:flex-start;gap:4px;}
+  .topic-pill .tp-top{display:flex;align-items:center;gap:8px;width:100%;}
+  .tp-revise-row{display:flex;align-items:center;justify-content:space-between;width:100%;gap:6px;}
+  .revise-badge{font-size:10px;color:var(--muted);}
+  .revise-badge.overdue{color:var(--bad);font-weight:600;}
+  .revise-btn{background:none;border:1px solid var(--border);color:var(--accent);font-size:10px;padding:2px 8px;border-radius:20px;cursor:pointer;}
+  .revise-btn:hover{background:rgba(91,140,255,.12);}
+  .overdue-card{background:rgba(240,85,107,.08);border:1px solid rgba(240,85,107,.3);}
+  .err-stat{background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:10px 14px;text-align:center;min-width:120px;}
+  @media(max-width:500px){
+    .timer-goal{font-size:15px;padding:0 14px;}
+    .timer-controls{flex-direction:column;width:80%;}
+    .timer-controls button{width:100%;}
+    .topic-grid{grid-template-columns:1fr;}
+    .countdown-card{padding:14px 16px;}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="sidebar">
+    <div class="brand">🚀 JEE Tracker</div>
+    <div class="brand-sub">Your full prep companion</div>
+    <button class="nav-btn active" data-page="dashboard">📊 Dashboard</button>
+    <button class="nav-btn" data-page="goals">✅ Daily Goals</button>
+    <button class="nav-btn" data-page="topics">📚 Topics & Concepts</button>
+    <button class="nav-btn" data-page="notes">📝 Short Notes</button>
+    <button class="nav-btn" data-page="problems">🧮 Problem Log</button>
+    <button class="nav-btn" data-page="errorlog">❌ Error Log</button>
+    <button class="nav-btn" data-page="tests">🏆 Test Tracker</button>
+    <button class="nav-btn" data-page="lectureplan">🎥 Lecture Planner</button>
+    <button class="nav-btn" data-page="testplan">🗓️ Test Planner</button>
+    <button class="nav-btn" data-page="timetable">⏰ Timetable</button>
+    <button class="nav-btn" data-page="focustimer">⏱️ Focus Timer</button>
+  </div>
+  <div class="main" id="main"></div>
+</div>
+
+<div class="modal-bg" id="modalBg"><div class="modal" id="modal"></div></div>
+
+<div id="timerOverlay">
+  <div class="timer-goal" id="timerGoalLabel"></div>
+  <div class="timer-big" id="timerBig">00:00</div>
+  <div class="timer-controls">
+    <button class="btn-ghost" id="timerPauseBtn" onclick="pauseResumeTimer()">⏸ Pause</button>
+    <button class="btn-ghost" onclick="cancelTimer()">✕ Cancel</button>
+  </div>
+</div>
+
+<script>
+const SUBJECTS = ["Physics","Chemistry","Maths"];
+const SUBJECT_CLASS = {Physics:"phy", Chemistry:"chem", Maths:"math"};
+
+const SYLLABUS = {
+  Physics: ["Units & Measurements","Kinematics","Laws of Motion","Work Energy Power","Rotational Motion","Gravitation","Properties of Solids & Fluids","Thermodynamics","Kinetic Theory of Gases","Oscillations & Waves","Electrostatics","Current Electricity","Magnetic Effects of Current","Electromagnetic Induction","Alternating Current","EM Waves","Optics","Modern Physics","Semiconductors"],
+  Chemistry: ["Mole Concept","Atomic Structure","Periodicity","Chemical Bonding","States of Matter","Thermodynamics","Equilibrium","Redox Reactions","Hydrogen","S-Block Elements","P-Block Elements","D & F Block Elements","Coordination Compounds","General Organic Chemistry","Hydrocarbons","Haloalkanes & Haloarenes","Alcohols Phenols Ethers","Aldehydes Ketones","Carboxylic Acids","Amines","Biomolecules","Polymers","Electrochemistry","Chemical Kinetics","Surface Chemistry"],
+  Maths: ["Sets Relations Functions","Complex Numbers","Quadratic Equations","Sequences & Series","Permutations & Combinations","Binomial Theorem","Matrices & Determinants","Limits Continuity Differentiability","Application of Derivatives","Indefinite Integration","Definite Integration","Differential Equations","Coordinate Geometry - Lines","Circles","Conic Sections","Vectors","3D Geometry","Trigonometry","Inverse Trig Functions","Statistics","Probability"]
+};
+
+let DATA = {
+  goals: [], topicsDone: {}, notes: [], problems: [], tests: [],
+  lectureplan: [], testplan: [], timetable: {}, sprints: [],
+  topicsRevised: {}, errors: []
+};
+
+const EXAM_DEADLINE = new Date('2027-01-01T00:00:00');
+const REVISION_OVERDUE_DAYS = 15;
+const ERROR_TYPES = ["Silly/Calculation Mistake","Concept Gap","Formula Forgotten","Time Pressure","Misread Question","Other"];
+
+const DAYS = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+const SLOTS = ["6-8am","8-10am","10-12pm","12-2pm","2-4pm","4-6pm","6-8pm","8-10pm"];
+
+async function loadAll(){
+  for(const key of Object.keys(DATA)){
+    try{
+      const val = await storageGet('jee:'+key);
+      if(val !== null && val !== undefined){
+        const parsed = JSON.parse(val);
+        DATA[key] = parsed;
+      }
+    }catch(e){ console.warn('load failed for', key, e); }
+  }
+  render();
+  // Show a one-time banner if persistence is running on the local fallback
+  if(window._usingFallback){
+    const note = document.createElement('div');
+    note.style.cssText = 'position:fixed;bottom:14px;right:14px;background:#1d2130;border:1px solid #2a2f3f;color:#f6cd7c;padding:10px 14px;border-radius:10px;font-size:12px;z-index:200;max-width:280px;';
+    note.innerHTML = '💾 Saving to this browser only. Keep using the same browser/device, and avoid Incognito/Private mode, or your data won\'t persist.';
+    document.body.appendChild(note);
+    setTimeout(()=>note.remove(), 9000);
+  }
+}
+
+async function storageGet(key){
+  // Try Claude's persistent artifact storage first
+  if(window.storage && typeof window.storage.get === 'function'){
+    try{
+      const r = await window.storage.get(key, false);
+      if(r && r.value !== undefined) return r.value;
+      return null;
+    }catch(e){
+      // key not found is expected; only fall back on hard failures
+    }
+  }
+  // Fallback: plain localStorage (works when file is opened directly in a browser)
+  window._usingFallback = true;
+  try{
+    const v = localStorage.getItem(key);
+    return v;
+  }catch(e){
+    return null;
+  }
+}
+
+async function storageSet(key, value){
+  let usedPrimary = false;
+  if(window.storage && typeof window.storage.set === 'function'){
+    try{
+      const result = await window.storage.set(key, value, false);
+      if(result) usedPrimary = true;
+    }catch(e){ /* fall through to localStorage */ }
+  }
+  if(!usedPrimary){
+    window._usingFallback = true;
+    try{ localStorage.setItem(key, value); }
+    catch(e){ console.error('All storage methods failed for', key, e); }
+  }
+}
+
+async function save(key){
+  await storageSet('jee:'+key, JSON.stringify(DATA[key]));
+}
+function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,7); }
+
+let currentPage = 'dashboard';
+document.querySelectorAll('.nav-btn').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    currentPage = b.dataset.page;
+    render();
+  });
+});
+
+function closeModal(){ document.getElementById('modalBg').classList.remove('open'); document.getElementById('modal').innerHTML=''; }
+function openModal(html){ document.getElementById('modal').innerHTML = html + `<button class="close-x" onclick="closeModal()">✕</button>`; document.getElementById('modalBg').classList.add('open'); }
+
+function render(){
+  const main = document.getElementById('main');
+  if(currentPage==='dashboard') return renderDashboard(main);
+  if(currentPage==='goals') return renderGoals(main);
+  if(currentPage==='topics') return renderTopics(main);
+  if(currentPage==='notes') return renderNotes(main);
+  if(currentPage==='problems') return renderProblems(main);
+  if(currentPage==='errorlog') return renderErrorLog(main);
+  if(currentPage==='tests') return renderTests(main);
+  if(currentPage==='lectureplan') return renderLecturePlan(main);
+  if(currentPage==='testplan') return renderTestPlan(main);
+  if(currentPage==='timetable') return renderTimetable(main);
+  if(currentPage==='focustimer') return renderFocusTimer(main);
+}
+
+/* ---------- EXAM COUNTDOWN ---------- */
+function pad(n){ return n.toString().padStart(2,'0'); }
+function updateExamCountdown(){
+  const el = document.getElementById('examCountdown');
+  if(!el) return;
+  const now = new Date();
+  let diff = EXAM_DEADLINE - now;
+  if(diff < 0) diff = 0;
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff / (1000*60*60)) % 24);
+  const mins = Math.floor((diff / (1000*60)) % 60);
+  const secs = Math.floor((diff / 1000) % 60);
+  el.innerHTML = `
+    <div class="cd-unit"><div class="cd-num">${days}</div><div class="cd-label">Days</div></div>
+    <div class="cd-unit"><div class="cd-num">${pad(hours)}</div><div class="cd-label">Hours</div></div>
+    <div class="cd-unit"><div class="cd-num">${pad(mins)}</div><div class="cd-label">Minutes</div></div>
+    <div class="cd-unit"><div class="cd-num">${pad(secs)}</div><div class="cd-label">Seconds</div></div>
+  `;
+}
+setInterval(updateExamCountdown, 1000);
+
+/* ---------- DASHBOARD ---------- */
+function getTopicStats(){
+  let total=0, done=0;
+  const bySubj={};
+  SUBJECTS.forEach(s=>{
+    const chs = SYLLABUS[s];
+    let d=0;
+    chs.forEach(c=>{ total++; if(DATA.topicsDone[s+'::'+c]) {done++; d++;} });
+    bySubj[s] = {done:d, total:chs.length};
+  });
+  return {total, done, bySubj};
+}
+
+function renderDashboard(main){
+  const ts = getTopicStats();
+  const todayGoals = DATA.goals.filter(g=>!g.archived);
+  const doneGoals = todayGoals.filter(g=>g.done).length;
+  const lastTests = [...DATA.tests].sort((a,b)=> new Date(b.date)-new Date(a.date)).slice(0,5);
+  const avgScore = DATA.tests.length ? Math.round(DATA.tests.reduce((s,t)=>s+ (t.score/t.maxScore*100),0)/DATA.tests.length) : 0;
+  const upcoming = [...DATA.testplan].filter(t=>!t.done).sort((a,b)=>new Date(a.date)-new Date(b.date)).slice(0,4);
+  const pctTopics = ts.total? Math.round(ts.done/ts.total*100):0;
+  const overdueTopics = getOverdueTopics();
+
+  main.innerHTML = `
+    <h1>Dashboard</h1>
+    <div class="pagesub">A quick snapshot of your JEE journey</div>
+
+    <div class="countdown-card">
+      <div class="countdown-title">⏳ TIME LEFT TO COMPLETE SYLLABUS — TARGET: JAN 1, 2027</div>
+      <div class="countdown-units" id="examCountdown"></div>
+    </div>
+
+    <div class="grid grid-4">
+      <div class="card"><div class="stat-num">${pctTopics}%</div><div class="stat-label">Syllabus Covered (${ts.done}/${ts.total})</div>
+        <div class="progress-bar"><div class="progress-fill" style="width:${pctTopics}%"></div></div></div>
+      <div class="card"><div class="stat-num">${doneGoals}/${todayGoals.length}</div><div class="stat-label">Goals Completed</div></div>
+      <div class="card"><div class="stat-num">${DATA.problems.length}</div><div class="stat-label">Problems Solved</div></div>
+      <div class="card"><div class="stat-num">${avgScore}%</div><div class="stat-label">Avg Test Score</div></div>
+    </div>
+
+    <div class="section-title">Subject-wise Progress</div>
+    <div class="grid grid-3">
+      ${SUBJECTS.map(s=>{
+        const d = ts.bySubj[s]; const pct = d.total? Math.round(d.done/d.total*100):0;
+        return `<div class="card">
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><b>${s}</b><span class="tag ${SUBJECT_CLASS[s]}">${d.done}/${d.total}</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+        </div>`;
+      }).join('')}
+    </div>
+
+    <div class="grid grid-2" style="margin-top:22px;">
+      <div class="card">
+        <div class="section-title" style="margin-top:0;">Recent Test Scores</div>
+        ${lastTests.length? lastTests.map(t=>`<div class="list-item"><div class="body"><b>${t.name}</b><div style="color:var(--muted);font-size:12px;">${t.date} · ${t.subject||'Full Test'}</div></div><div style="font-weight:700;">${t.score}/${t.maxScore}</div></div>`).join('') : `<div class="empty">No tests logged yet — add one in Test Tracker.</div>`}
+      </div>
+      <div class="card">
+        <div class="section-title" style="margin-top:0;">Upcoming Planned Tests</div>
+        ${upcoming.length? upcoming.map(t=>`<div class="list-item"><div class="body"><b>${t.name}</b><div style="color:var(--muted);font-size:12px;">${t.date}</div></div></div>`).join('') : `<div class="empty">No upcoming tests planned.</div>`}
+      </div>
+    </div>
+
+    <div class="card overdue-card" style="margin-top:22px;">
+      <div class="section-title" style="margin-top:0;">🔁 Topics Overdue for Revision</div>
+      ${overdueTopics.length? `<div class="topic-grid">${overdueTopics.slice(0,12).map(t=>`<div class="topic-pill" style="flex-direction:row;align-items:center;"><span class="tag ${SUBJECT_CLASS[t.subject]}">${t.subject}</span><span>${t.topic}</span><span style="margin-left:auto;color:var(--bad);font-size:11px;">${t.days===null?'never':t.days+'d ago'}</span></div>`).join('')}</div>${overdueTopics.length>12?`<div style="color:var(--muted);font-size:12px;margin-top:8px;">+ ${overdueTopics.length-12} more overdue. Go to Topics & Concepts to revise.</div>`:''}` : `<div class="empty">Nothing overdue — your revision is on track 🎯</div>`}
+    </div>
+  `;
+  updateExamCountdown();
+}
+
+/* ---------- GOALS ---------- */
+function renderGoals(main){
+  main.innerHTML = `
+    <h1>Daily Goals</h1>
+    <div class="pagesub">Add today's targets and tick them off as you go</div>
+    <div class="card" style="margin-bottom:18px;">
+      <div class="row">
+        <input id="goalInput" placeholder="e.g. Solve 25 Physics rotational motion problems" style="flex:1;">
+        <button class="btn" onclick="addGoal()">Add Goal</button>
+      </div>
+    </div>
+    <div id="goalList"></div>
+  `;
+  const list = document.getElementById('goalList');
+  if(!DATA.goals.length){ list.innerHTML = `<div class="empty">No goals yet. Add your first one above 👆</div>`; return; }
+  const sorted = [...DATA.goals].sort((a,b)=> a.done - b.done);
+  list.innerHTML = sorted.map(g=>`
+    <div class="list-item">
+      <input type="checkbox" class="chk" ${g.done?'checked':''} onchange="toggleGoal('${g.id}')">
+      <div class="body ${g.done?'done-text':''}">${g.text}</div>
+      <button class="icon-btn" onclick="deleteGoal('${g.id}')">🗑</button>
+    </div>`).join('');
+}
+function addGoal(){
+  const inp = document.getElementById('goalInput');
+  if(!inp.value.trim()) return;
+  DATA.goals.push({id:uid(), text:inp.value.trim(), done:false, created:new Date().toISOString()});
+  inp.value='';
+  save('goals'); render();
+}
+function toggleGoal(id){ const g = DATA.goals.find(x=>x.id===id); g.done=!g.done; save('goals'); render(); }
+function deleteGoal(id){ DATA.goals = DATA.goals.filter(x=>x.id!==id); save('goals'); render(); }
+
+/* ---------- TOPICS ---------- */
+function daysSince(dateStr){
+  if(!dateStr) return null;
+  const diff = Date.now() - new Date(dateStr).getTime();
+  return Math.floor(diff / (1000*60*60*24));
+}
+function renderTopics(main){
+  main.innerHTML = `
+    <h1>Topics & Concepts</h1>
+    <div class="pagesub">Track coverage, and revise completed topics before you forget them</div>
+    <div id="topicsContainer"></div>
+  `;
+  const container = document.getElementById('topicsContainer');
+  container.innerHTML = SUBJECTS.map(s=>{
+    const chs = SYLLABUS[s];
+    return `<div class="topic-block">
+      <h4>${s}</h4>
+      <div class="topic-grid">
+        ${chs.map(c=>{
+          const key = s+'::'+c; const done = !!DATA.topicsDone[key];
+          const revDate = DATA.topicsRevised[key];
+          const d = daysSince(revDate);
+          let badgeHtml = '';
+          if(done){
+            if(d===null) badgeHtml = `<span class="revise-badge overdue">Never revised</span>`;
+            else if(d>=REVISION_OVERDUE_DAYS) badgeHtml = `<span class="revise-badge overdue">${d}d ago — overdue</span>`;
+            else badgeHtml = `<span class="revise-badge">${d===0?'Revised today':d+'d ago'}</span>`;
+          }
+          return `<div class="topic-pill">
+            <div class="tp-top">
+              <input type="checkbox" class="chk" style="width:16px;height:16px;" ${done?'checked':''} onchange="toggleTopic('${key.replace(/'/g,"\\'")}')">
+              <span class="${done?'done-text':''}">${c}</span>
+            </div>
+            ${done?`<div class="tp-revise-row">${badgeHtml}<button class="revise-btn" onclick="markRevised('${key.replace(/'/g,"\\'")}')">Mark Revised</button></div>`:''}
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+function toggleTopic(key){
+  DATA.topicsDone[key] = !DATA.topicsDone[key];
+  if(DATA.topicsDone[key] && !DATA.topicsRevised[key]){
+    DATA.topicsRevised[key] = new Date().toISOString().slice(0,10);
+    save('topicsRevised');
+  }
+  save('topicsDone'); render();
+}
+function markRevised(key){
+  DATA.topicsRevised[key] = new Date().toISOString().slice(0,10);
+  save('topicsRevised'); render();
+}
+function getOverdueTopics(){
+  const out = [];
+  SUBJECTS.forEach(s=>{
+    SYLLABUS[s].forEach(c=>{
+      const key = s+'::'+c;
+      if(DATA.topicsDone[key]){
+        const d = daysSince(DATA.topicsRevised[key]);
+        if(d===null || d>=REVISION_OVERDUE_DAYS) out.push({subject:s, topic:c, days:d});
+      }
+    });
+  });
+  return out.sort((a,b)=>(b.days??999)-(a.days??999));
+}
+
+/* ---------- NOTES ---------- */
+function renderNotes(main){
+  main.innerHTML = `
+    <h1>Short Notes</h1>
+    <div class="pagesub">Quick concept notes, organized by subject & topic</div>
+    <button class="btn" onclick="openNoteForm()">+ New Note</button>
+    <div class="pill-row" id="noteFilters" style="margin-top:18px;"></div>
+    <div id="notesList"></div>
+  `;
+  const filters = document.getElementById('noteFilters');
+  filters.innerHTML = ['All',...SUBJECTS].map(s=>`<button class="btn-ghost" onclick="filterNotes('${s}')">${s}</button>`).join('');
+  window._noteFilter = window._noteFilter || 'All';
+  filterNotes(window._noteFilter, true);
+}
+function filterNotes(s, skipRender){
+  window._noteFilter = s;
+  const list = document.getElementById('notesList');
+  const items = s==='All'? DATA.notes : DATA.notes.filter(n=>n.subject===s);
+  if(!items.length){ list.innerHTML = `<div class="empty">No notes here yet.</div>`; return; }
+  list.innerHTML = [...items].reverse().map(n=>`
+    <div class="list-item">
+      <div class="body">
+        <span class="tag ${SUBJECT_CLASS[n.subject]||''}">${n.subject}</span>
+        <b>${n.title}</b>
+        <div style="color:var(--muted);font-size:12.5px;margin-top:6px;white-space:pre-wrap;">${n.content}</div>
+      </div>
+      <button class="icon-btn" onclick="deleteNote('${n.id}')">🗑</button>
+    </div>`).join('');
+}
+function openNoteForm(){
+  openModal(`
+    <h3 style="margin-top:0;">New Note</h3>
+    <div class="field"><label>Subject</label>
+      <select id="noteSubject">${SUBJECTS.map(s=>`<option>${s}</option>`).join('')}</select>
+    </div>
+    <div class="field"><label>Title</label><input id="noteTitle" placeholder="e.g. SHM equations"></div>
+    <div class="field"><label>Content</label><textarea id="noteContent" placeholder="Write your note..."></textarea></div>
+    <button class="btn" onclick="saveNote()">Save Note</button>
+  `);
+}
+function saveNote(){
+  const title = document.getElementById('noteTitle').value.trim();
+  const content = document.getElementById('noteContent').value.trim();
+  const subject = document.getElementById('noteSubject').value;
+  if(!title) return;
+  DATA.notes.push({id:uid(), title, content, subject, created:new Date().toISOString()});
+  save('notes'); closeModal(); render();
+}
+function deleteNote(id){ DATA.notes = DATA.notes.filter(n=>n.id!==id); save('notes'); render(); }
+
+/* ---------- PROBLEMS ---------- */
+function renderProblems(main){
+  main.innerHTml = '';
+  main.innerHTML = `
+    <h1>Problem Log</h1>
+    <div class="pagesub">Log problems you solve — track topic, difficulty & result</div>
+    <button class="btn" onclick="openProblemForm()">+ Log Problem</button>
+    <div class="section-title">History (${DATA.problems.length})</div>
+    <table>
+      <tr><th>Date</th><th>Subject</th><th>Topic</th><th>Difficulty</th><th>Result</th><th></th></tr>
+      ${[...DATA.problems].reverse().map(p=>`
+        <tr>
+          <td>${p.date}</td>
+          <td><span class="tag ${SUBJECT_CLASS[p.subject]||''}">${p.subject}</span></td>
+          <td>${p.topic}</td>
+          <td>${p.difficulty}</td>
+          <td>${p.result==='Correct'?'✅':'❌'}</td>
+          <td><button class="icon-btn" onclick="deleteProblem('${p.id}')">🗑</button></td>
+        </tr>`).join('') || `<tr><td colspan="6" class="empty">No problems logged yet.</td></tr>`}
+    </table>
+  `;
+}
+function openProblemForm(){
+  openModal(`
+    <h3 style="margin-top:0;">Log a Problem</h3>
+    <div class="field"><label>Subject</label><select id="pSubject">${SUBJECTS.map(s=>`<option>${s}</option>`).join('')}</select></div>
+    <div class="field"><label>Topic</label><input id="pTopic" placeholder="e.g. Rotational Motion"></div>
+    <div class="field"><label>Difficulty</label><select id="pDiff"><option>Easy</option><option>Medium</option><option>Hard</option></select></div>
+    <div class="field"><label>Result</label><select id="pResult"><option>Correct</option><option>Incorrect</option></select></div>
+    <div class="field"><label>Notes (optional)</label><textarea id="pNotes" placeholder="What went wrong / key trick used"></textarea></div>
+    <button class="btn" onclick="saveProblem()">Save</button>
+  `);
+}
+function saveProblem(){
+  const subject = document.getElementById('pSubject').value;
+  const topic = document.getElementById('pTopic').value.trim() || 'General';
+  const difficulty = document.getElementById('pDiff').value;
+  const result = document.getElementById('pResult').value;
+  const notes = document.getElementById('pNotes').value.trim();
+  DATA.problems.push({id:uid(), subject, topic, difficulty, result, notes, date:new Date().toISOString().slice(0,10)});
+  save('problems'); closeModal(); render();
+}
+function deleteProblem(id){ DATA.problems = DATA.problems.filter(p=>p.id!==id); save('problems'); render(); }
+
+/* ---------- ERROR LOG ---------- */
+function renderErrorLog(main){
+  const counts = {};
+  ERROR_TYPES.forEach(t=>counts[t]=0);
+  DATA.errors.forEach(e=>{ counts[e.type] = (counts[e.type]||0)+1; });
+  const sortedTypes = ERROR_TYPES.filter(t=>counts[t]>0).sort((a,b)=>counts[b]-counts[a]);
+
+  main.innerHTML = `
+    <h1>Error Log</h1>
+    <div class="pagesub">Every mistake tagged by type — this is what you re-read before the exam, not your notes</div>
+    <button class="btn" onclick="openErrorForm()">+ Log a Mistake</button>
+
+    ${DATA.errors.length ? `
+    <div class="section-title">Pattern Breakdown</div>
+    <div class="row">
+      ${sortedTypes.length? sortedTypes.map(t=>`<div class="err-stat"><div class="stat-num" style="font-size:20px;">${counts[t]}</div><div class="stat-label">${t}</div></div>`).join('') : `<div class="empty">No patterns yet.</div>`}
+    </div>` : ''}
+
+    <div class="section-title">Mistake History (${DATA.errors.length})</div>
+    <table>
+      <tr><th>Date</th><th>Subject</th><th>Topic</th><th>Error Type</th><th>What Happened</th><th></th></tr>
+      ${[...DATA.errors].reverse().map(e=>`
+        <tr>
+          <td>${e.date}</td>
+          <td><span class="tag ${SUBJECT_CLASS[e.subject]||''}">${e.subject}</span></td>
+          <td>${e.topic}</td>
+          <td>${e.type}</td>
+          <td style="max-width:260px;">${e.description||'—'}</td>
+          <td><button class="icon-btn" onclick="deleteError('${e.id}')">🗑</button></td>
+        </tr>`).join('') || `<tr><td colspan="6" class="empty">No mistakes logged yet — that's either great, or you haven't started logging 😉</td></tr>`}
+    </table>
+  `;
+}
+function openErrorForm(){
+  openModal(`
+    <h3 style="margin-top:0;">Log a Mistake</h3>
+    <div class="field"><label>Subject</label><select id="eSubject">${SUBJECTS.map(s=>`<option>${s}</option>`).join('')}</select></div>
+    <div class="field"><label>Topic</label><input id="eTopic" placeholder="e.g. Rotational Motion"></div>
+    <div class="field"><label>Error Type</label><select id="eType">${ERROR_TYPES.map(t=>`<option>${t}</option>`).join('')}</select></div>
+    <div class="field"><label>What happened (be specific)</label><textarea id="eDesc" placeholder="e.g. Forgot to convert degrees to radians before integrating"></textarea></div>
+    <button class="btn" onclick="saveError()">Save</button>
+  `);
+}
+function saveError(){
+  const subject = document.getElementById('eSubject').value;
+  const topic = document.getElementById('eTopic').value.trim() || 'General';
+  const type = document.getElementById('eType').value;
+  const description = document.getElementById('eDesc').value.trim();
+  DATA.errors.push({id:uid(), subject, topic, type, description, date:new Date().toISOString().slice(0,10)});
+  save('errors'); closeModal(); render();
+}
+function deleteError(id){ DATA.errors = DATA.errors.filter(e=>e.id!==id); save('errors'); render(); }
+
+/* ---------- TESTS ---------- */
+function renderTests(main){
+  main.innerHTML = `
+    <h1>Test Tracker</h1>
+    <div class="pagesub">Log mock test / chapter test results and watch your trend</div>
+    <button class="btn" onclick="openTestForm()">+ Add Test Score</button>
+    <div class="section-title">All Tests</div>
+    <table>
+      <tr><th>Date</th><th>Name</th><th>Subject</th><th>Score</th><th>%</th><th></th></tr>
+      ${[...DATA.tests].sort((a,b)=>new Date(b.date)-new Date(a.date)).map(t=>`
+        <tr>
+          <td>${t.date}</td><td>${t.name}</td><td>${t.subject||'Full'}</td>
+          <td>${t.score}/${t.maxScore}</td>
+          <td>${Math.round(t.score/t.maxScore*100)}%</td>
+          <td><button class="icon-btn" onclick="deleteTest('${t.id}')">🗑</button></td>
+        </tr>`).join('') || `<tr><td colspan="6" class="empty">No tests logged yet.</td></tr>`}
+    </table>
+  `;
+}
+function openTestForm(){
+  openModal(`
+    <h3 style="margin-top:0;">Add Test Score</h3>
+    <div class="field"><label>Test Name</label><input id="tName" placeholder="e.g. FIITJEE AITS-3"></div>
+    <div class="field"><label>Subject</label><select id="tSubject"><option>Full</option>${SUBJECTS.map(s=>`<option>${s}</option>`).join('')}</select></div>
+    <div class="field"><label>Date</label><input id="tDate" type="date" value="${new Date().toISOString().slice(0,10)}"></div>
+    <div class="row">
+      <div class="field" style="flex:1;"><label>Score</label><input id="tScore" type="number" placeholder="180"></div>
+      <div class="field" style="flex:1;"><label>Max Score</label><input id="tMax" type="number" placeholder="300"></div>
+    </div>
+    <button class="btn" onclick="saveTest()">Save Test</button>
+  `);
+}
+function saveTest(){
+  const name = document.getElementById('tName').value.trim();
+  const subject = document.getElementById('tSubject').value;
+  const date = document.getElementById('tDate').value;
+  const score = parseFloat(document.getElementById('tScore').value)||0;
+  const maxScore = parseFloat(document.getElementById('tMax').value)||1;
+  if(!name) return;
+  DATA.tests.push({id:uid(), name, subject, date, score, maxScore});
+  save('tests'); closeModal(); render();
+}
+function deleteTest(id){ DATA.tests = DATA.tests.filter(t=>t.id!==id); save('tests'); render(); }
+
+/* ---------- LECTURE PLANNER ---------- */
+function renderLecturePlan(main){
+  main.innerHTML = `
+    <h1>Lecture Planner</h1>
+    <div class="pagesub">Plan which lectures to watch/attend and track completion</div>
+    <button class="btn" onclick="openLectureForm()">+ Add Lecture</button>
+    <div id="lectureList" style="margin-top:18px;"></div>
+  `;
+  const list = document.getElementById('lectureList');
+  if(!DATA.lectureplan.length){ list.innerHTML = `<div class="empty">No lectures planned yet.</div>`; return; }
+  list.innerHTML = [...DATA.lectureplan].sort((a,b)=>new Date(a.date)-new Date(b.date)).map(l=>`
+    <div class="list-item">
+      <input type="checkbox" class="chk" ${l.done?'checked':''} onchange="toggleLecture('${l.id}')">
+      <div class="body ${l.done?'done-text':''}">
+        <span class="tag ${SUBJECT_CLASS[l.subject]||''}">${l.subject}</span>
+        <b>${l.title}</b> <span style="color:var(--muted);font-size:12px;">— ${l.date}</span>
+      </div>
+      <button class="icon-btn" onclick="deleteLecture('${l.id}')">🗑</button>
+    </div>`).join('');
+}
+function openLectureForm(){
+  openModal(`
+    <h3 style="margin-top:0;">Add Lecture</h3>
+    <div class="field"><label>Subject</label><select id="lSubject">${SUBJECTS.map(s=>`<option>${s}</option>`).join('')}</select></div>
+    <div class="field"><label>Title / Topic</label><input id="lTitle" placeholder="e.g. Rotational Motion Pt.2"></div>
+    <div class="field"><label>Planned Date</label><input id="lDate" type="date" value="${new Date().toISOString().slice(0,10)}"></div>
+    <button class="btn" onclick="saveLecture()">Save</button>
+  `);
+}
+function saveLecture(){
+  const subject = document.getElementById('lSubject').value;
+  const title = document.getElementById('lTitle').value.trim();
+  const date = document.getElementById('lDate').value;
+  if(!title) return;
+  DATA.lectureplan.push({id:uid(), subject, title, date, done:false});
+  save('lectureplan'); closeModal(); render();
+}
+function toggleLecture(id){ const l = DATA.lectureplan.find(x=>x.id===id); l.done=!l.done; save('lectureplan'); render(); }
+function deleteLecture(id){ DATA.lectureplan = DATA.lectureplan.filter(x=>x.id!==id); save('lectureplan'); render(); }
+
+/* ---------- TEST PLANNER ---------- */
+function renderTestPlan(main){
+  main.innerHTML = `
+    <h1>Test Planner</h1>
+    <div class="pagesub">Schedule upcoming tests/mocks so nothing sneaks up on you</div>
+    <button class="btn" onclick="openTestPlanForm()">+ Plan Test</button>
+    <div id="tpList" style="margin-top:18px;"></div>
+  `;
+  const list = document.getElementById('tpList');
+  if(!DATA.testplan.length){ list.innerHTML = `<div class="empty">No tests planned yet.</div>`; return; }
+  list.innerHTML = [...DATA.testplan].sort((a,b)=>new Date(a.date)-new Date(b.date)).map(t=>`
+    <div class="list-item">
+      <input type="checkbox" class="chk" ${t.done?'checked':''} onchange="toggleTestPlan('${t.id}')">
+      <div class="body ${t.done?'done-text':''}"><b>${t.name}</b> <span style="color:var(--muted);font-size:12px;">— ${t.date}</span>${t.notes?`<div style="color:var(--muted);font-size:12px;margin-top:4px;">${t.notes}</div>`:''}</div>
+      <button class="icon-btn" onclick="deleteTestPlan('${t.id}')">🗑</button>
+    </div>`).join('');
+}
+function openTestPlanForm(){
+  openModal(`
+    <h3 style="margin-top:0;">Plan a Test</h3>
+    <div class="field"><label>Test Name</label><input id="tpName" placeholder="e.g. Full Syllabus Mock 5"></div>
+    <div class="field"><label>Date</label><input id="tpDate" type="date" value="${new Date().toISOString().slice(0,10)}"></div>
+    <div class="field"><label>Notes</label><textarea id="tpNotes" placeholder="Syllabus / focus areas"></textarea></div>
+    <button class="btn" onclick="saveTestPlan()">Save</button>
+  `);
+}
+function saveTestPlan(){
+  const name = document.getElementById('tpName').value.trim();
+  const date = document.getElementById('tpDate').value;
+  const notes = document.getElementById('tpNotes').value.trim();
+  if(!name) return;
+  DATA.testplan.push({id:uid(), name, date, notes, done:false});
+  save('testplan'); closeModal(); render();
+}
+function toggleTestPlan(id){ const t = DATA.testplan.find(x=>x.id===id); t.done=!t.done; save('testplan'); render(); }
+function deleteTestPlan(id){ DATA.testplan = DATA.testplan.filter(x=>x.id!==id); save('testplan'); render(); }
+
+/* ---------- TIMETABLE ---------- */
+function renderTimetable(main){
+  main.innerHTML = `
+    <h1>Weekly Timetable</h1>
+    <div class="pagesub">Your recurring study schedule — click a cell to edit (scroll sideways on mobile)</div>
+    <div class="timetable-wrap"><div class="timetable-grid" id="ttGrid"></div></div>
+  `;
+  const grid = document.getElementById('ttGrid');
+  let html = `<div class="tt-cell tt-head"></div>` + DAYS.map(d=>`<div class="tt-cell tt-head">${d}</div>`).join('');
+  SLOTS.forEach(slot=>{
+    html += `<div class="tt-cell tt-head" style="text-align:left;">${slot}</div>`;
+    DAYS.forEach(d=>{
+      const key = d+'_'+slot;
+      const val = DATA.timetable[key] || '';
+      html += `<div class="tt-cell"><textarea onblur="saveTimetableCell('${key}', this.value)" placeholder="—">${val}</textarea></div>`;
+    });
+  });
+  grid.innerHTML = html;
+}
+function saveTimetableCell(key, val){
+  DATA.timetable[key] = val;
+  save('timetable');
+}
+
+/* ---------- FOCUS TIMER (rapid goal sprints) ---------- */
+let timerState = { remaining:0, total:0, goal:'', running:false, intervalId:null };
+
+function renderFocusTimer(main){
+  main.innerHTML = `
+    <h1>Focus Timer</h1>
+    <div class="pagesub">Set a rapid goal, give it a time limit, and beat the clock</div>
+    <div class="card">
+      <div class="timer-setup">
+        <div class="field" style="flex:2;min-width:220px;"><label>Goal</label><input id="sprintGoal" placeholder="e.g. Solve 15 mole concept numericals"></div>
+        <div class="field" style="width:90px;"><label>Minutes</label><input id="sprintMin" type="number" min="0" value="15"></div>
+        <div class="field" style="width:90px;"><label>Seconds</label><input id="sprintSec" type="number" min="0" max="59" value="0"></div>
+        <button class="btn" onclick="startSprintTimer()">▶ Start</button>
+      </div>
+      <div class="row" style="margin-top:12px;">
+        ${[5,10,15,20,30,45,60].map(m=>`<button class="btn-ghost" onclick="quickSet(${m})">${m} min</button>`).join('')}
+      </div>
+    </div>
+
+    <div class="section-title">Sprint History (${DATA.sprints.length})</div>
+    <table>
+      <tr><th>Date</th><th>Goal</th><th>Duration</th><th>Result</th></tr>
+      ${[...DATA.sprints].reverse().map(s=>`
+        <tr>
+          <td>${s.date}</td>
+          <td>${s.goal}</td>
+          <td>${s.duration}</td>
+          <td>${s.result==='completed'?'✅ Completed':'⏱️ Time ran out'}</td>
+        </tr>`).join('') || `<tr><td colspan="4" class="empty">No sprints logged yet. Start your first one above.</td></tr>`}
+    </table>
+  `;
+}
+function quickSet(mins){
+  document.getElementById('sprintMin').value = mins;
+  document.getElementById('sprintSec').value = 0;
+}
+function startSprintTimer(){
+  const goal = document.getElementById('sprintGoal').value.trim() || 'Focus Sprint';
+  const mins = parseInt(document.getElementById('sprintMin').value)||0;
+  const secs = parseInt(document.getElementById('sprintSec').value)||0;
+  const total = mins*60 + secs;
+  if(total <= 0) return;
+  timerState = { remaining: total, total, goal, running:true, intervalId:null };
+  document.getElementById('timerGoalLabel').textContent = goal;
+  document.getElementById('timerOverlay').classList.add('open');
+  document.getElementById('timerPauseBtn').textContent = '⏸ Pause';
+  renderTimerDisplay();
+  timerState.intervalId = setInterval(tickTimer, 1000);
+}
+function renderTimerDisplay(){
+  const m = Math.floor(timerState.remaining/60);
+  const s = timerState.remaining%60;
+  const big = document.getElementById('timerBig');
+  big.textContent = `${pad(m)}:${pad(s)}`;
+  big.classList.toggle('urgent', timerState.remaining <= 10);
+}
+function tickTimer(){
+  if(!timerState.running) return;
+  timerState.remaining--;
+  renderTimerDisplay();
+  if(timerState.remaining <= 0){
+    clearInterval(timerState.intervalId);
+    playBeep();
+    logSprint('completed');
+    document.getElementById('timerGoalLabel').textContent = `✅ Time's up — "${timerState.goal}"`;
+    setTimeout(()=>{ closeTimerOverlay(); }, 2500);
+  }
+}
+function pauseResumeTimer(){
+  timerState.running = !timerState.running;
+  document.getElementById('timerPauseBtn').textContent = timerState.running ? '⏸ Pause' : '▶ Resume';
+}
+function cancelTimer(){
+  clearInterval(timerState.intervalId);
+  if(timerState.total>0 && timerState.remaining>0 && timerState.remaining<timerState.total){
+    logSprint('cancelled-' + timerState.remaining);
+  }
+  closeTimerOverlay();
+}
+function closeTimerOverlay(){
+  document.getElementById('timerOverlay').classList.remove('open');
+  if(currentPage==='focustimer') render();
+}
+function logSprint(result){
+  const m = Math.floor(timerState.total/60), s = timerState.total%60;
+  DATA.sprints.push({id:uid(), goal:timerState.goal, duration:`${m}m ${s}s`, result: result.startsWith('completed')?'completed':'timeout', date:new Date().toISOString().slice(0,10)});
+  save('sprints');
+}
+function playBeep(){
+  try{
+    const ctx = new (window.AudioContext||window.webkitAudioContext)();
+    [0,300,600].forEach(delay=>{
+      setTimeout(()=>{
+        const o = ctx.createOscillator(); const g = ctx.createGain();
+        o.type='sine'; o.frequency.value=880;
+        o.connect(g); g.connect(ctx.destination);
+        g.gain.setValueAtTime(0.2, ctx.currentTime);
+        o.start(); o.stop(ctx.currentTime+0.25);
+      }, delay);
+    });
+  }catch(e){}
+}
+
+loadAll();
+</script>
+</body>
+</html>
